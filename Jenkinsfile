@@ -3,6 +3,7 @@ node{
     git 'https://github.com/nguyengiavu/jenkins'
   }
   stage('Complie-Package'){
-    sh 'mvn package'
+    def mvnHome = tool name: 'maven-1', type: 'maven'
+    sh "${mvnHome/bin/mvn package}"
   }
 }
