@@ -3,6 +3,7 @@ node{
     git 'https://github.com/nguyengiavu/jenkins'
   }
   stage('Compile-Package'){
-    sh 'mvn package -DskipTests'
+    def mvnHome = tool name: 'maven-3', type: 'maven'
+    sh "${mvnHome}/bin/mvn package -DskipTests"
   }
 }
